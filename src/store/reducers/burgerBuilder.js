@@ -1,5 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
-import { updateObject } from '../utility';
+import { updateObject } from '../../shared/utility';
 
 const initialState = {
   ingredients: null,
@@ -32,7 +32,7 @@ const removeIngredient = (state, action) => {
   const updatedIngs = updateObject(state.ingredients, updatedIng);
   let updatedCount = Object.values(updatedIngs).reduce((prev, next) => prev + next);
   let building = true;
-  if (updatedCount == 0) {
+  if (updatedCount === 0) {
     building = false;
   }
   const updateSt = {

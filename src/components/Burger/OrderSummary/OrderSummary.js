@@ -3,10 +3,6 @@ import Aux from '../../../hoc/Aux/Aux';
 import Button from '../../UI/Button/Button';
 
 class OrderSummary extends Component {
-  // This could be a founctional component, doesn't have to be a class component
-  componentDidUpdate() {
-    console.log('[OrderSummary] didupdate')
-  }
   render () {
     const ingredientSummary = Object.keys(this.props.ingredients)
       .map(igKey => {
@@ -26,7 +22,6 @@ class OrderSummary extends Component {
         <Button btnType="Danger" clicked={this.props.purchaseCanceled}>CANCEL</Button>
         <Button btnType="Success" clicked={this.props.purchaseContinued}>CONTINUE</Button>
       </Aux>
-
     );
   }
 }
