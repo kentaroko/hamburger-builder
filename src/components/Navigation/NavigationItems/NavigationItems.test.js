@@ -12,11 +12,16 @@ describe('<NavigationItems />', () => {
     wrapper = shallow(<NavigationItems />);
   });
   it('should render two <NavigatioItem /> elements if not authenticated', () => {
-    expect(wrapper.find(NavigationItem)).toHaveLength(2);;
+    expect(wrapper.find(NavigationItem)).toHaveLength(2);
   });
 
   it('should render three <NavigatioItem /> elements if authenticated', () => {
     wrapper.setProps({isAuthenticated: true});
-    expect(wrapper.find(NavigationItem)).toHaveLength(3);;
+    expect(wrapper.find(NavigationItem)).toHaveLength(3);
+  });
+
+  it('should an exact logout button', () => {
+    wrapper.setProps({isAuthenticated: true});
+    expect(wrapper.contains(<NavigationItem link="/logout">Logout</NavigationItem>)).toEqual(true);
   });
 });
